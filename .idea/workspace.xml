@@ -1,22 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="960ec7c6-96c4-413e-8a73-0329d2b7d7bf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/t3-nextfire-blog-app.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/icons8-discord-32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/icons8-google-32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Navbar.component.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Spinner.component.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/UsernameForm.component.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/admin/[slug].tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/admin/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/enter.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/users/[username]/[slug].tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/users/[username]/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/server/trpc/router/username.ts" afterDir="false" />
+    <list default="true" id="960ec7c6-96c4-413e-8a73-0329d2b7d7bf" name="Changes" comment="Navbar and Enter components, username check and queries implemented">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UsernameForm.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UsernameForm.component.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +13,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -95,8 +82,23 @@
       <workItem from="1667632072345" duration="12644000" />
       <workItem from="1667657168698" duration="7299000" />
       <workItem from="1667741661419" duration="11226000" />
-      <workItem from="1667819046171" duration="15378000" />
+      <workItem from="1667819046171" duration="16932000" />
     </task>
+    <task id="LOCAL-00001" summary="t3 app initialized">
+      <created>1667841284949</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1667841284949</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Navbar and Enter components, username check and queries implemented">
+      <created>1667841409906</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1667841409906</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -115,5 +117,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="t3 app initialized" />
+    <MESSAGE value="Navbar and Enter components, username check and queries implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="Navbar and Enter components, username check and queries implemented" />
   </component>
 </project>

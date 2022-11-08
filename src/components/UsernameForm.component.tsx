@@ -15,7 +15,7 @@ const UsernameForm = () => {
 
     const validString    = z.string()
                             .regex(/^(?=[a-zA-Z0-9._]{3,15}$)(?!.*[_.]{2})[^_.].*[^_.]$/);
-    const { data: user } = trpc.username.getUsername.useQuery({ username: valueCheck });
+    const { data: user, refetch } = trpc.username.getUsername.useQuery({ username: valueCheck });
     const setUsername    = trpc.username.setUsername.useMutation();
     const router         = useRouter();
 
