@@ -1,4 +1,4 @@
-import type { ChangeEvent, FormEvent} from 'react';
+import type { ChangeEvent, FormEvent } from 'react';
 import { useCallback, useEffect, useState } from 'react';
 import { z } from 'zod';
 import { trpc } from '../utils/trpc';
@@ -13,24 +13,25 @@ const UsernameForm = () => {
     const [ isEligible, setIsEligible ] = useState(false);
     const [ valueCheck, setValueCheck ] = useState('');
 
-    const validString    = z.string()
-                            .regex(/^(?=[a-zA-Z0-9._]{3,15}$)(?!.*[_.]{2})[^_.].*[^_.]$/);
-    const { data: user, refetch } = trpc.username.getUsername.useQuery({ username: valueCheck });
-    const setUsername    = trpc.username.setUsername.useMutation();
-    const router         = useRouter();
+    const validString = z.string()
+                         .regex(/^(?=[a-zA-Z0-9._]{3,15}$)(?!.*[_.]{2})[^_.].*[^_.]$/);
+    const { refetch } = trpc.username.getUsername.useQuery({ username: valueCheck });
+    const setUsername = trpc.username.setUsername.useMutation();
+    const router      = useRouter();
 
 
-    const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         try {
-            setUsername.mutate({
+            await setUsername.mutate({
                 username: formValue
             });
             toast.success('Username is set!');
-            router.push('/');
+            await router.reload();
         } catch (e) {
             toast.error('Oops, something went terribly wrong!');
+            console.log('Error mutating data', e)
         }
     };
 
@@ -43,17 +44,18 @@ const UsernameForm = () => {
     };
 
     const checkUsername = useCallback(
-        debounce((name: string) => {
-            name && setIsEligible(!user);
+        debounce(async (name: string) => {
+            setValueCheck(name);
+            const { data } = await refetch();
+            setIsEligible(!data);
             setLoading(false);
         }, 500),
-        [ user ]
+        []
     );
 
 
     useEffect(() => {
-        formValue && setValueCheck(formValue);
-        checkUsername(formValue);
+        formValue && checkUsername(formValue);
     }, [ formValue, checkUsername ]);
 
     return (
