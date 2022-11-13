@@ -2,9 +2,12 @@ import { protectedProcedure, publicProcedure, router } from '../trpc';
 
 
 export const authRouter = router({
+    // getSession: publicProcedure.query(({ ctx }) => {
+    //     return ctx.session;
+    // }),
     getSession      : publicProcedure.query(async ({ ctx }) => {
         try {
-            if ( !ctx.session ) return;
+            if ( !ctx.session ) return null;
             const usernameObj = await ctx.prisma.user.findFirst({
                 select: {
                     username: true

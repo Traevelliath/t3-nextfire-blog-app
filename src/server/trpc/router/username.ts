@@ -5,19 +5,13 @@ import { protectedProcedure, router } from '../trpc';
 export const usernameRouter = router({
     getUsername: protectedProcedure
         .input(
-            z.object({
-                username: z.string(),
-            })
+            z.object({ username : z.string(), })
         )
         .query(async ({ ctx, input }) => {
             try {
                 return await ctx.prisma.user.findFirst({
-                    select: {
-                        username: true
-                    },
-                    where: {
-                        username: input.username
-                    }
+                    select: { username : true },
+                    where : { username : input.username }
                 });
             } catch (e) {
                 console.log(e);
@@ -32,12 +26,8 @@ export const usernameRouter = router({
         .mutation(async ({ ctx, input }) => {
             try {
                 await ctx.prisma.user.update({
-                    where: {
-                        id: ctx.session.user.id
-                    },
-                    data: {
-                        username: input.username
-                    }
+                    where: { id       : ctx.session.user.id },
+                    data : { username : input.username.toLocaleLowerCase() }
                 });
             } catch (e) {
                 console.log(e);

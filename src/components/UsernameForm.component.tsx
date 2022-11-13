@@ -2,7 +2,6 @@ import type { ChangeEvent, FormEvent } from 'react';
 import { useCallback, useEffect, useState } from 'react';
 import { z } from 'zod';
 import { trpc } from '../utils/trpc';
-import { useRouter } from 'next/router';
 import toast from 'react-hot-toast';
 import debounce from 'lodash.debounce';
 
@@ -11,28 +10,29 @@ const UsernameForm = () => {
     const [ formValue, setFormValue ]   = useState('');
     const [ loading, setLoading ]       = useState(false);
     const [ isEligible, setIsEligible ] = useState(false);
-    const [ valueCheck, setValueCheck ] = useState('');
 
+    const utils = trpc.useContext();
     const validString = z.string()
                          .regex(/^(?=[a-zA-Z0-9._]{3,15}$)(?!.*[_.]{2})[^_.].*[^_.]$/);
-    const { refetch } = trpc.username.getUsername.useQuery({ username: valueCheck });
-    const setUsername = trpc.username.setUsername.useMutation();
-    const router      = useRouter();
+    const { refetch } = trpc.username.getUsername.useQuery({ username: formValue }, { enabled: false });
+    const setUsername = trpc.username.setUsername.useMutation({
+        onSuccess: () => {
+            utils.auth.getSession.invalidate();
+            toast.success('Username is set!');
+        },
+        onError: (error) => {
+            toast.error('Oops, something went terribly wrong!');
+            console.log('Error mutating data', error)
+        }
+    });
 
 
     const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        try {
-            await setUsername.mutate({
-                username: formValue
-            });
-            toast.success('Username is set!');
-            await router.reload();
-        } catch (e) {
-            toast.error('Oops, something went terribly wrong!');
-            console.log('Error mutating data', e)
-        }
+        setUsername.mutate({
+            username: formValue
+        });
     };
 
     const onChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -45,7 +45,7 @@ const UsernameForm = () => {
 
     const checkUsername = useCallback(
         debounce(async (name: string) => {
-            setValueCheck(name);
+            if (!validString.safeParse(name).success) return;
             const { data } = await refetch();
             setIsEligible(!data);
             setLoading(false);

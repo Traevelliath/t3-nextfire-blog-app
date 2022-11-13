@@ -1,9 +1,13 @@
 import Link from 'next/link';
 import { signOut } from 'next-auth/react';
 import { trpc } from '../utils/trpc';
+import Image from 'next/image';
 
 
 export default function NavbarComponent() {
+    // const { data }       = useSession();
+    // const { data: user } = trpc.user.getUserById.useQuery({ id: data?.user?.id }, { enabled: !!data });
+
     const { data: session } = trpc.auth.getSession.useQuery();
     const username          = session?.user?.username;
 
@@ -35,11 +39,22 @@ export default function NavbarComponent() {
                         </li>
                         <li>
                             <Link href={ `/users/${ username }` }>
-                                <img src={ session?.user?.image || '' } alt='User Profile Picture'/>
+                                <Image src={ session?.user?.image || '' } alt='User Profile Picture' width={ 48 }
+                                       height={ 50 }/>
                             </Link>
                         </li>
                     </>
                 ) }
+
+                { session && !username && (
+                    <>
+                        <li>
+                            <Link href='/enter'>
+                                <button className='btn-blue'>Set Up Username</button>
+                            </Link>
+                        </li>
+                    </>
+                )}
 
             </ul>
         </nav>

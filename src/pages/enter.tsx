@@ -5,7 +5,7 @@ import { trpc } from '../utils/trpc';
 import UsernameForm from '../components/UsernameForm.component';
 
 
-export default function EnterPage({}) {
+export default function EnterPage() {
     const { data: session, status } = trpc.auth.getSession.useQuery();
     const username                  = session?.user?.username;
 

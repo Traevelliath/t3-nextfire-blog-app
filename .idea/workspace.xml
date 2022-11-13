@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="960ec7c6-96c4-413e-8a73-0329d2b7d7bf" name="Changes" comment="Navbar and Enter components, username check and queries implemented">
+    <list default="true" id="960ec7c6-96c4-413e-8a73-0329d2b7d7bf" name="Changes" comment="Username check improved">
+      <change afterPath="$PROJECT_DIR$/src/components/PostFeed.component.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/UserProfile.component.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/trpc/router/user.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.component.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/UsernameForm.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UsernameForm.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/enter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/enter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/users/[username]/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/users/[username]/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/trpc/router/_app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/trpc/router/_app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/trpc/router/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/trpc/router/auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/trpc/router/username.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/trpc/router/username.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/next-auth.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/next-auth.d.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +62,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.TypeScript&quot;,
     &quot;ts.external.directory.path&quot;: &quot;/Users/traevelliath/WebstormProjects/t3-nextfire-blog-app/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -87,7 +99,13 @@
       <workItem from="1667632072345" duration="12644000" />
       <workItem from="1667657168698" duration="7299000" />
       <workItem from="1667741661419" duration="11226000" />
-      <workItem from="1667819046171" duration="18851000" />
+      <workItem from="1667819046171" duration="23526000" />
+      <workItem from="1667925331051" duration="6183000" />
+      <workItem from="1668001536432" duration="3701000" />
+      <workItem from="1668102945028" duration="4825000" />
+      <workItem from="1668271078789" duration="613000" />
+      <workItem from="1668271792780" duration="7409000" />
+      <workItem from="1668323617190" duration="4116000" />
     </task>
     <task id="LOCAL-00001" summary="t3 app initialized">
       <created>1667841284949</created>
@@ -117,7 +135,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667900684408</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Username check improved">
+      <created>1667902374300</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1667902374300</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,6 +190,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="t3 app initialized" />
     <MESSAGE value="Navbar and Enter components, username check and queries implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="Navbar and Enter components, username check and queries implemented" />
+    <MESSAGE value="Username check improved" />
+    <option name="LAST_COMMIT_MESSAGE" value="Username check improved" />
   </component>
 </project>
