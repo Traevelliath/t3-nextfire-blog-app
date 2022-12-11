@@ -82,14 +82,14 @@ const PostForm = ({ defaultValues, preview }: PostFormProps) => {
                 </div>
             ) }
             <div>
-                <textarea { ...register('content') }></textarea>
-                {errors.content && <p className="text-danger">{errors.content.message}</p>}
+                <textarea { ...register('content', {
+                    minLength: { value: 20, message: 'Content is too short' },
+                    maxLength: { value: 20000, message: 'Content is too long' },
+                    required : { value: true, message: 'Content cannot be empty' }
+                }) }></textarea>
+                { errors.content && <p className='text-danger'>{ errors.content.message }</p> }
                 <fieldset>
-                    <input type='checkbox' { ...register('published', {
-                        minLength: { value: 20, message: 'Content is too short' },
-                        maxLength: { value: 20000, message: 'Content is too long' },
-                        required : { value: true, message: 'Content cannot be empty' }
-                    }) } />
+                    <input type='checkbox' { ...register('published') } />
                     <label>Published</label>
                 </fieldset>
                 <button type='submit' className='btn-green' disabled={ !isValid || !isDirty }>
