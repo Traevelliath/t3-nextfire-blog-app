@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
-import { type Session } from 'next-auth';
+import { trpc } from '../utils/trpc';
 
 
-export default function PostFeed({ posts, admin, user }: PostFeedProps) {
+export default function PostFeed({ posts, admin, userPage }: PostFeedProps) {
     const userData = useSession();
     if ( posts && posts[0]?.authorId === userData.data?.user?.id ) {
         admin = true;
@@ -11,32 +11,38 @@ export default function PostFeed({ posts, admin, user }: PostFeedProps) {
 
     return <>
         {
-            posts ? posts.map((post) => <PostItem post={ post } key={ post.slug } admin={ admin } user={user}/>) : null
+            posts ?
+            posts.map((post) =>
+                <PostItem post={ post } key={ post.slug } admin={ admin } userPage={userPage}/>
+            ) :
+            null
         }
     </>;
 }
 
-function PostItem({ post, admin, user }: PostItemProps) {
+function PostItem({ post, admin, userPage }: PostItemProps) {
     // Naive method to calc word count and read time
     const wordCount     = post?.content.trim().split(/\s+/g).length;
     const minutesToRead = (wordCount / 100 + 1).toFixed(0);
+
+    const likesCount = trpc.posts.likesCount.useQuery({id: post.id})
+    const likes = likesCount.data?._count.userLikes
+
     return (
         <div className='card'>
-            <Link href={ `/${ user?.username }` }>
-                <strong>By @{ user?.username }</strong>
+            <Link href={ `${userPage ? '' : 'users/'}${ post?.authorUsername }` }>
+                <strong>By @{ post?.authorUsername }</strong>
             </Link>
-
-            <Link href={ `/${ user?.username }/${ post.slug }` }>
+            <Link href={ `${userPage ? '' : 'users/'}${ post?.authorUsername }/${ post.slug }` } replace>
                 <h2>
                     { post.title }
                 </h2>
             </Link>
-
             <footer>
         <span>
           { wordCount } words. { minutesToRead } min read
         </span>
-                <span className='push-left'>💗 { post.likesCount || 0 } Hearts</span>
+                <span className='push-left'>💗 { likesCount.isLoading ? '...' :  likes } Likes</span>
             </footer>
 
             {/* If admin view, show extra controls for user */ }
@@ -64,18 +70,18 @@ export type Post = {
     published: boolean
     createdAt: Date
     updatedAt: Date
-    likesCount: number
     authorId: string
+    authorUsername: string
 }
 
 type PostItemProps = {
     post: Post
     admin: boolean
-    user: Session['user'] | null
+    userPage: boolean
 }
 
 type PostFeedProps = {
     posts: Post[] | null
     admin: boolean
-    user: Session['user'] | null
+    userPage: boolean
 }

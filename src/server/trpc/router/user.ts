@@ -36,17 +36,64 @@ export const userRouter = router({
             }
         }),
     getPosts   : publicProcedure
-        .input(z.object({ id: z.string().optional() }))
+        .input(
+            z.object({
+                id: z.string().optional(),
+            })
+        )
         .query(async ({ ctx, input }) => {
             try {
                 return await ctx.prisma.post.findMany({
                     where: {
                         authorId : input.id,
                         published: true
+                    },
+                    orderBy: {
+                        createdAt: 'desc'
                     }
                 });
             } catch (e) {
                 console.log('Error getting user posts', e);
+            }
+        }),
+    getAllPosts   : publicProcedure
+        .input(
+            z.object({
+                id: z.string().optional(),
+            })
+        )
+        .query(async ({ ctx, input }) => {
+            try {
+                return await ctx.prisma.post.findMany({
+                    where: {
+                        authorId : input.id,
+                    },
+                    orderBy: {
+                        createdAt: 'desc'
+                    }
+                });
+            } catch (e) {
+                console.log('Error getting user posts', e);
+            }
+        }),
+    isPostLiked: publicProcedure
+        .input(
+            z.object({
+                userId: z.string().optional(),
+                postId: z.string()
+            })
+        )
+        .query(async ({ctx, input}) => {
+            try {
+                const userWithLikedPosts = await ctx.prisma.user.findUnique({
+                    where: {id: input.userId},
+                    include: {likedPosts: true}
+                });
+                return userWithLikedPosts?.likedPosts
+                                         .filter(post => post.id === input.postId)
+                                         .map(post => post.id)
+            } catch (e) {
+                console.log('Error retrieving like data', e)
             }
         })
 });

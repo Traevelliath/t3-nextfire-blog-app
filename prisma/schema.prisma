@@ -53,6 +53,9 @@ model User {
   accounts      Account[]
   sessions      Session[]
   posts         Post[]
+  likedPosts    Post[]    @relation("UserLikedPost")
+
+  @@unique([id, username])
 }
 
 model VerificationToken {
@@ -64,14 +67,15 @@ model VerificationToken {
 }
 
 model Post {
-  id         String   @id @default(cuid())
-  title      String
-  slug       String
-  author     User     @relation(fields: [authorId], references: [id])
-  authorId   String
-  content    String   @db.Text
-  published  Boolean  @default(false)
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
-  likesCount Int
+  id             String   @id @default(cuid())
+  title          String
+  slug           String
+  author         User     @relation(fields: [authorId, authorUsername], references: [id, username])
+  authorId       String
+  authorUsername String
+  content        String   @db.Text
+  published      Boolean  @default(false)
+  createdAt      DateTime @unique @default(now())
+  updatedAt      DateTime @default(now())
+  userLikes      User[]   @relation("UserLikedPost")
 }
