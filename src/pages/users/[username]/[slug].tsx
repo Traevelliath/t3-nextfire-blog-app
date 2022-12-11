@@ -38,7 +38,7 @@ export default function PostPage({ post }: InferGetStaticPropsType<typeof getSta
     const { data: session } = useSession();
     if ( !post ) return;
 
-    let isLiked;
+    let isLiked = false;
 
     const { data }  = trpc.posts.getPostBySlug.useQuery(post.slug);
     const likedPost = trpc.user.isPostLiked.useQuery(

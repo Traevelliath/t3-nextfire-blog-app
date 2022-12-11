@@ -82,7 +82,6 @@ export const postsRouter = router({
                             authorId      : input.authorId,
                             authorUsername: input.authorUsername,
                             content       : input.content,
-                            likesCount    : input.likesCount
                         }
                     });
                 } catch (e) {

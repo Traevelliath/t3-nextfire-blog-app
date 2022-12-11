@@ -106,7 +106,7 @@
       <workItem from="1670417648452" duration="2586000" />
       <workItem from="1670683088141" duration="1802000" />
       <workItem from="1670743495907" duration="7606000" />
-      <workItem from="1670752790780" duration="1799000" />
+      <workItem from="1670752790780" duration="2135000" />
     </task>
     <task id="LOCAL-00001" summary="t3 app initialized">
       <created>1667841284949</created>
@@ -157,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670754763357</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Basic functionality implemented (image uploads and SEO metatags pending), ready to be deployed.">
+      <created>1670755258477</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1670755258477</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
