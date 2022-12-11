@@ -1,27 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="960ec7c6-96c4-413e-8a73-0329d2b7d7bf" name="Changes" comment="Username check improved ( again ), getServersideProps figured out, user page is now complete">
-      <change afterPath="$PROJECT_DIR$/src/components/AuthCheck.Component.jsx.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/LikeButton.component.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/404.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/server/trpc/router/posts.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PostFeed.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PostFeed.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/admin/[slug].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/[slug].tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/admin/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/users/[username]/[slug].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/users/[username]/[slug].tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/users/[username]/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/users/[username]/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/trpc/router/_app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/trpc/router/_app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/trpc/router/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/trpc/router/user.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/next-auth.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/next-auth.d.ts" afterDir="false" />
-    </list>
+    <list default="true" id="960ec7c6-96c4-413e-8a73-0329d2b7d7bf" name="Changes" comment="Basic functionality implemented (image uploads and SEO metatags pending), ready to be deployed." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -126,7 +106,7 @@
       <workItem from="1670417648452" duration="2586000" />
       <workItem from="1670683088141" duration="1802000" />
       <workItem from="1670743495907" duration="7606000" />
-      <workItem from="1670752790780" duration="1499000" />
+      <workItem from="1670752790780" duration="1799000" />
     </task>
     <task id="LOCAL-00001" summary="t3 app initialized">
       <created>1667841284949</created>
@@ -170,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668327835513</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Basic functionality implemented (image uploads and SEO metatags pending), ready to be deployed.">
+      <created>1670754763356</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1670754763357</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,6 +207,7 @@
     <MESSAGE value="Navbar and Enter components, username check and queries implemented" />
     <MESSAGE value="Username check improved" />
     <MESSAGE value="Username check improved ( again ), getServersideProps figured out, user page is now complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="Username check improved ( again ), getServersideProps figured out, user page is now complete" />
+    <MESSAGE value="Basic functionality implemented (image uploads and SEO metatags pending), ready to be deployed." />
+    <option name="LAST_COMMIT_MESSAGE" value="Basic functionality implemented (image uploads and SEO metatags pending), ready to be deployed." />
   </component>
 </project>
